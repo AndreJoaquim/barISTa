@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bem-vindo ao barISTa</title>
+    <link rel="shortcut icon" href="../images/logo.ico">
+    <!-- CSS -->
+	<link href="ipm.css" rel="stylesheet" type="text/css">
+	<link href="scrollbar.css" rel="stylesheet" type="text/css">
+    <!-- JS -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="ipm.js"></script>
+	<script type="text/javascript" src="clock.js"></script>
+
+    
+</head>
+
+<body onLoad="startClock(); start()">
+
+<nav>
+	<div id="nav-ba" class="nav-item">
+    	<img onClick="clicked('ba')" src="../images/ba.png" />
+    </div>
+	<div id="nav-bna" class="nav-item">
+		<img onClick="clicked('bna')" src="../images/bna.png" />
+	</div>
+	<div id="nav-food" class="nav-item">
+		<img onClick="clicked('food')" src="../images/food.png" />
+	</div>
+</nav>
+
+<ul class="menu-list" id="ba">
+
+	<li>
+        <div>
+        <p>VODKA</p>
+        <p>4,00€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('VODKA', '4,00')">Sugerir</button>
+        </div>
+    </li>
+    
+    <li>
+        <div>
+        <p>VODKA PRETA</p>
+        <p>4,50€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('VODKA PRETA', '4,50')">Sugerir</button>
+        </div>
+    </li>
+	
+	<li>
+        <div>
+        <p>VODKA REDBULL</p>
+        <p>4,50€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('VODKA REDBULL', '4,50')">Sugerir</button>
+        </div>
+    </li>
+	
+	<li>
+        <div>
+        <p>SHOT TEQUILLA</p>
+        <p>1,00€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('SHOT TEQUILLA', '1,00')">Sugerir</button>
+        </div>
+    </li>
+    
+    <li class="last-child">
+        <div>
+        <p>IMPERIAL</p>
+        <p>0,50€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('IMPERIAL', '0,50')">Sugerir</button>
+        </div>
+    </li>
+    
+</ul>
+
+<ul class="menu-list" id="bna">
+
+	<li>
+        <div>
+        <p>COCA-COLA</p>
+        <p>0,80€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('COCA-COLA', '0,80')">Sugerir</button>
+        </div>
+    </li>
+	
+	<li>
+        <div>
+        <p>ICE TEA LIMÃO</p>
+        <p>0,80€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('COCA-COLA', '0,80')">Sugerir</button>
+        </div>
+    </li>
+	
+	<li>
+        <div>
+        <p>ICE TEA PÊSSEGO</p>
+        <p>0,80€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('COCA-COLA', '0,80')">Sugerir</button>
+        </div>
+    </li>
+	
+	<li>
+        <div>
+        <p>MOUNTAIN DEW</p>
+        <p>1,40€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('MOUNTAIN DEW', '1,40')">Sugerir</button>
+        </div>
+    </li>
+    
+    <li>
+        <div>
+        <p>CAFÉ</p>
+        <p>0,50€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('CAFÉ', '0,50')">Sugerir</button>
+        </div>
+    </li>
+    
+    <li class="last-child">
+        <div>
+        <p>CAPPUCCINO</p>
+        <p>1,50€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('CAPPUCCINO', '1,50')">Sugerir</button>
+        </div>
+    </li>
+    
+</ul>
+
+<ul class="menu-list" id="food">
+
+	<li>
+        <div>
+        <p>HAMBURGUER</p>
+        <p>3,95€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('HAMURGUER', '3,95')">Sugerir</button>
+        </div>
+    </li>
+	
+	<li>
+        <div>
+        <p>HAMBURGUER COM QUEIJO</p>
+        <p>4,15€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('HAMURGUER COM QUEIJO', '4,15')">Sugerir</button>
+        </div>
+    </li>
+	
+	<li>
+        <div>
+        <p>CARACÓIS</p>
+        <p>2,00€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('CARACOIS', '2,00')">Sugerir</button>
+        </div>
+    </li>
+
+	<li>
+        <div>
+        <p>TOSTA MISTA</p>
+        <p>2,80€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('TOSTA MISTA', '2,80')">Sugerir</button>
+        </div>
+    </li>
+    
+    <li>
+        <div>
+        <p>AMENDOINS</p>
+        <p>0,20€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('AMENDOINS', '0,20')">Sugerir</button>
+        </div>
+    </li>
+    
+    <li class="last-child">
+        <div>
+        <p>PISTÁCHIOS</p>
+        <p>0,20€</p>
+        <button class="request">Pedir</button>
+        <button class="suggest" onClick="suggest('PISTÁCHIOS', '0,20')">Sugerir</button>
+        </div>
+    </li>
+	
+</ul>
+
+<div id="globalfeed">
+	<div class="header">
+		<h2>Sugestões</h2>
+    </div>
+    <div id="feed">
+    	<div class="item" style="display:block" id="0">
+        <p>VODKA REDBULL</p>
+        <p>4,50€</p>
+        <button class="request">Pedir</button>
+        <button onClick ='ignore(0)'>Ignorar</button>
+        </div>        
+    </div>
+    <button id="ignoreAll" onClick="ignoreAll()">Ignorar Todas</button>
+</div>
+
+<div class="time time-date-container">
+	<div class="time" id="clock"></div>
+	<div class="time" id="date"></div>
+</div>
+
+<div class="help help-container">
+	<div class="help" id="help-text">
+		<a href="../index.html"><button>Voltar ao Menu Inicial</button></a>
+	</div>
+	<div class="help" id="help-button" onClick="showHelp()">
+		<img src="../images/help-button.png" />
+	</div>
+</div>
+	
+</body>
+</html>

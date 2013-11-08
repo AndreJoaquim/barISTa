@@ -1,0 +1,51 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen:700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+
+body {
+	background-color: #2E2D2F;	
+	font-family: 'Oxygen', sans-serif;
+	font-weight: 700;
+}
+
+a {
+	text-decoration: none;
+	color: #2E2D2F;
+}
+
+h1 {
+	text-align: center;
+	font-size: 72px;
+	margin-top: 100px;
+	color: #CCC;
+}
+
+.main-div {
+	font-weight: 800;
+	color: #2E2D2F;
+	text-shadow: 2px 2px #000;
+	nt-family: 'Open Sans', sans-serif;
+	font-size: 58px;
+	margin: /*top right bottom left*/ 100px auto 0px auto;
+	width: 596px;
+	text-align: center;
+}
+
+#portugal{
+	margin-right: 10px;
+	background-image: url(images/pt.jpg);
+	float: left;
+	width: 288px;
+	height: 192px;
+}
+
+#portugal:hover, #england:hover{
+	cursor: pointer;
+}
+
+#england{
+	margin-left: 10px;
+	background-image: url(images/uk.jpg);
+	float: left;
+	width: 288px;
+	height: 193px;
+}
