@@ -213,6 +213,7 @@ function clicked( name ) {
 		replace += '<img ';
 		if(menu_list_on == "paint"){
 			replace += 'onClick="Pclicked(\'' + menu_list_on + '\')"';
+			$('#globalfeed').fadeIn(100);
 		}else{
 			replace += 'onClick="clicked(\'' + menu_list_on + '\')"';
 		}
