@@ -69,7 +69,7 @@ function Pclicked( name ) {
 		var replace = '<div id=\"' + id + '\" class="nav-item">';
 
 		replace += '<img ';
-		replace += 'onClick="deClicked(\'' + name + '\')"';
+		replace += 'onClick="dePclicked(\'' + name + '\')"';
 		replace += 'src="../images/' + name + '-pressed.png" />';
 		replace += '</div>';
 
@@ -106,7 +106,7 @@ function Pclicked( name ) {
 		var replace = '<div id=\"' + id + '\" class="nav-item">';
 
 		replace += '<img ';
-		replace += 'onClick="deClicked(\'' + name + '\')"';
+		replace += 'onClick="dePclicked(\'' + name + '\')"';
 		replace += 'src="../images/' + name + '-pressed.png" />';
 		replace += '</div>';
 
@@ -116,6 +116,33 @@ function Pclicked( name ) {
 	}
 
 	
+};
+
+function dePclicked( name ) {
+	
+	$('#' + name).fadeOut(100, function(){
+		$('#globalfeed').fadeIn(100);
+	});
+	
+	
+	console.log(name);
+	var id = 'nav-' + name;
+	var replace = '<div id=\"' + id + '\" class="nav-item">';
+	
+	console.log(id);
+
+	replace += '<img ';
+	replace += 'onClick="Pclicked(\'' + name + '\')"';
+	replace += 'src="../images/' + name + '.png" />';
+	replace += '</div>';
+	
+	var id = 'nav-' + name;
+	
+	$('#' + id).replaceWith( replace );
+	
+	menu_list_on = "none";
+	
+
 };
 
 function deClicked( name ) {
@@ -184,7 +211,11 @@ function clicked( name ) {
 		var replace = '<div id=\"' + id_menu + '\" class="nav-item">';
 
 		replace += '<img ';
-		replace += 'onClick="clicked(\'' + menu_list_on + '\')"';
+		if(menu_list_on == "paint"){
+			replace += 'onClick="Pclicked(\'' + menu_list_on + '\')"';
+		}else{
+			replace += 'onClick="clicked(\'' + menu_list_on + '\')"';
+		}
 		replace += 'src="../images/' + menu_list_on + '.png" />';
 		replace += '</div>';
 		
