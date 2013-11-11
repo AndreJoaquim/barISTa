@@ -163,3 +163,11 @@ nav {
 	bottom: 170px;
 	display: none;
 }
+
+#paint {
+	top: 180px;
+	border: solid 2px black;
+	height: 128px;
+	right: 10px;
+}
+
