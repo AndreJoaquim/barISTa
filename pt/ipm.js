@@ -53,7 +53,67 @@ function suggest( name, price ) {
 
 function Pclicked( name ) {
 
-$('#globalfeed').fadeOut(100);
+	$('#globalfeed').fadeOut(100);
+
+	if(menu_list_on == "none"){
+	
+		menu_list_on = name;
+	
+		$('#' + name).fadeIn(100);
+		
+		
+		console.log("NAME: " + name);
+		var id = "nav-" + name;
+		console.log("ID: " + id);
+		
+		var replace = '<div id=\"' + id + '\" class="nav-item">';
+
+		replace += '<img ';
+		replace += 'onClick="deClicked(\'' + name + '\')"';
+		replace += 'src="../images/' + name + '-pressed.png" />';
+		replace += '</div>';
+
+		$('#' + id).replaceWith( replace );
+	
+	} else {
+	
+		
+		$('#' + menu_list_on).fadeOut(100, function(){
+			$('#' + name).fadeIn(100);		
+		});
+		
+		
+		var id_menu = 'nav-' + menu_list_on;
+		var replace = '<div id=\"' + id_menu + '\" class="nav-item">';
+
+		replace += '<img ';
+		replace += 'onClick="clicked(\'' + menu_list_on + '\')"';
+		replace += 'src="../images/' + menu_list_on + '.png" />';
+		replace += '</div>';
+		
+		var id_menu = 'nav-' + menu_list_on;
+		
+		$('#' + id_menu).replaceWith( replace );
+		
+		menu_list_on = name;
+		
+		$('#globalfeed').css(
+			"margin-left", "10px"
+		)
+		
+		var id = "nav-" + name;
+		
+		var replace = '<div id=\"' + id + '\" class="nav-item">';
+
+		replace += '<img ';
+		replace += 'onClick="deClicked(\'' + name + '\')"';
+		replace += 'src="../images/' + name + '-pressed.png" />';
+		replace += '</div>';
+
+		$('#' + id).replaceWith( replace );
+		
+	
+	}
 
 	
 };
@@ -87,6 +147,7 @@ function deClicked( name ) {
 };
 
 function clicked( name ) {
+	
 	
 	if(menu_list_on == "none"){
 	
@@ -150,6 +211,7 @@ function clicked( name ) {
 		
 	
 	}
+	
   
 };
 
