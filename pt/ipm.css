@@ -164,6 +164,11 @@ nav {
 	display: none;
 }
 
+.snooker-jogo {
+
+    display: none;
+
+}
 #paint {
 	top: 180px;
 	border: solid 2px black;
