@@ -170,6 +170,7 @@ nav {
 
 }
 #paint {
+	position: absolute;
 	top: 180px;
 	border: solid 2px black;
 	height: 128px;
