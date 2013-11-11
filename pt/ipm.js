@@ -51,6 +51,13 @@ function suggest( name, price ) {
 	
 };
 
+function Pclicked( name ) {
+
+$('#globalfeed').fadeOut(100);
+
+	
+};
+
 function deClicked( name ) {
 	
 	$('#' + name).fadeOut(100, function(){
