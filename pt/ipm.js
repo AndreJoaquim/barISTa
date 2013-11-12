@@ -289,7 +289,11 @@ function canvascolor() {
         canvas.node.onmouseup = function(e) {
             canvas.isDrawing = false;
         };
+        
+        
 };
+
+canvascolor();
 
 
 
