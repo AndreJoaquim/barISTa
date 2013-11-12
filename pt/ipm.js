@@ -256,7 +256,8 @@ function start(){
 
 function canvascolor(fillColor) {
         var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.context;
+        
+        var ctx = canvas.getContext("2d");
         // define a custom fillCircle method
         ctx.fillCircle = function(x, y, radius, fillColor) {
             this.fillStyle = fillColor;
