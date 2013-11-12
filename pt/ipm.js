@@ -255,7 +255,7 @@ function start(){
 
 
 function canvascolor() {
-        var canvas = document.getElementById("myCanvas");
+        var canvas = $("#myCanvas");
         
         var ctx = canvas.getContext("2d");
         // define a custom fillCircle method
@@ -293,10 +293,8 @@ function canvascolor() {
         
 };
 
-canvascolor();
 
-
-
-
-
-
+$(document).ready(
+	function(){
+	canvascolor();	
+	});
