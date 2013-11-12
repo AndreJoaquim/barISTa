@@ -254,7 +254,7 @@ function start(){
 
 
 
-function canvascolor(fillColor) {
+function canvascolor('#000FFF') {
         var canvas = document.getElementById("myCanvas");
         
         var ctx = canvas.getContext("2d");
