@@ -1,21 +1,10 @@
-barISTa
+barISTa 2013
 ===========
 
-Interfaces Pessoa-Máquina
+Interface Pessoa-Máquina
 -----------
 
-LEIC-A
------------
-2013-2014
+### LEIC-A
+### 2013-2014
 
-**TASKS**
-
- - [x] Suggestions
- - [x] Clock
- - [ ] Help content
- - [ ] (some) Buttons
- - [ ] Snooker
- - [ ] Order
- - [ ] Customize screen
- - [ ] Checkout
- - [ ] Show total
+Application for a bar touchscreen table
