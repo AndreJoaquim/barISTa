@@ -1,10 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Oxygen:700);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:800);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,800&subset=latin-ext,greek-ext,cyrillic-ext);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,800,500);
 
 body {
-	background-color: #2E2D2F;	
-	font-family: 'Oxygen', sans-serif;
-	font-weight: 700;
+	background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
 }
 
 a {
@@ -12,9 +13,30 @@ a {
 	color: #2E2D2F;
 }
 
+#barista {
+    
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 92px;
+
+}
+
 h1 {
 	text-align: center;
-	font-size: 72px;
+	font-size: 58px;
+	margin-top: 150px;
+	color: #CCC;
+}
+
+h2 {
+	text-align: center;
+	font-size: 48px;
+	color: #CCC;
+}
+
+h4 {
+	text-align: center;
+	font-size: 26px;
 	margin-top: 100px;
 	color: #CCC;
 }
@@ -23,29 +45,34 @@ h1 {
 	font-weight: 800;
 	color: #2E2D2F;
 	text-shadow: 2px 2px #000;
-	nt-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 58px;
 	margin: /*top right bottom left*/ 100px auto 0px auto;
 	width: 596px;
 	text-align: center;
 }
 
-#portugal{
+#portugal {
 	margin-right: 10px;
-	background-image: url(images/pt.jpg);
+	background-image: url(images/pt.png);
 	float: left;
 	width: 288px;
 	height: 192px;
 }
 
-#portugal:hover, #england:hover{
+#portugal:hover, #england:hover {
 	cursor: pointer;
 }
 
-#england{
+#england {
 	margin-left: 10px;
-	background-image: url(images/uk.jpg);
+	background-image: url(images/uk.png);
 	float: left;
 	width: 288px;
 	height: 193px;
+}
+
+img:hover {
+
+    cursor: pointer;
 }

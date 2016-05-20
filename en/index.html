@@ -5,7 +5,8 @@
 	<title>Welcome to barISTa</title>
     <link rel="shortcut icon" href="images/logo.ico">
     <!-- CSS -->
-	<link href="ipm.css" rel="stylesheet" type="text/css">
+	<link href="../welcome.css" rel="stylesheet" type="text/css">
+    <link href="ipm.css" rel="stylesheet" type="text/css">
     <!-- JS -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="ipm.js"></script>
@@ -14,150 +15,17 @@
     
 </head>
 
-<body onLoad="startClock()">
-
-<nav>
-	<div id="nav-ba" class="nav-item">
-    	<img onClick="clicked('ba')" src="images/ba.png" />
+<body>
+        
+    <h4>This funcionality is not available. We are sorry for the inconvenience.</h2>
+    <h4>Esta funcionalidade não está disponível. Pedimos desculpa pelo incómodo causado.</h2>
+    <br/>
+    <br/>
+    <div class="centeredImage">
+        <a href="../index.html">
+            <img src="../images/return.png" />
+        </a>
     </div>
-	<div id="nav-bna" class="nav-item">
-		<img onClick="clicked('bna')" src="images/bna.png" />
-	</div>
-	<div id="nav-food" class="nav-item">
-		<img onClick="clicked('food')" src="images/food.png" />
-	</div>
-</nav>
-
-<ul class="menu-list" id="ba">
-
-	<li>
-        <div>
-        <p>VODKA</p>
-        <p>4,00€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('VODKA', '4,00')">Suggest</button>
-        </div>
-    </li>
     
-    <li>
-        <div>
-        <p>BLACK VODKA</p>
-        <p>4,50€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('BLACK VODKA', '4,50')">Suggest</button>
-        </div>
-    </li>
-    
-    <li class="last-child">
-        <div>
-        <p>BEER</p>
-        <p>0,80€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('BEER', '0,80')">Suggest</button>
-        </div>
-    </li>
-    
-</ul>
-
-<ul class="menu-list" id="bna">
-
-	<li>
-        <div>
-        <p>COCA-COLA</p>
-        <p>0,80€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('COCA-COLA', '0,80')">Suggest</button>
-        </div>
-    </li>
-    
-    <li>
-        <div>
-        <p>COFFEE</p>
-        <p>0,70€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('COFFEE', '0,70')">Suggest</button>
-        </div>
-    </li>
-    
-    <li class="last-child">
-        <div>
-        <p>CAPPUCCINO</p>
-        <p>1,50€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('CAPPUCCINO', '1,50')">Suggest</button>
-        </div>
-    </li>
-    
-</ul>
-
-<ul class="menu-list" id="food">
-
-	<li>
-        <div>
-        <p>HAMBURGUER</p>
-        <p>3,95€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('HAMURGUER', '3,95')">Suggest</button>
-        </div>
-    </li>
-
-	<li>
-        <div>
-        <p>GRILLED SANDWICH</p>
-        <p>2,80€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('GRILLED SANDWICH', '2,80')">Suggest</button>
-        </div>
-    </li>
-    
-    <li>
-        <div>
-        <p>PEANUTS</p>
-        <p>0,20€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('PEANUTS', '0,20')">Suggest</button>
-        </div>
-    </li>
-    
-    <li class="last-child">
-        <div>
-        <p>PISTACHIOS</p>
-        <p>0,20€</p>
-        <button class="request">Order</button>
-        <button class="suggest" onClick="suggest('PISTACHIOS', '0,20')">Suggest</button>
-        </div>
-    </li>
-	
-</ul>
-
-<div id="globalfeed">
-	<div class="header">
-		<h2>Suggestions</h2>
-    </div>
-    <div id="feed">
-    	<div class="item" style="display:block" id="0">
-        <p>VODKA REDBULL</p>
-        <p>4,50€</p>
-        <button class="request">Order</button>
-        <button onClick ='ignore(0)'>Ignore</button>
-        </div>        
-    </div>
-    <button id="ignoreAll" onClick="ignoreAll()">Ignore All</button>
-</div>
-
-<div class="time time-date-container">
-	<div class="time" id="clock"></div>
-	<div class="time" id="date"></div>
-</div>
-    
-<div class="help help-container">
-	<div class="help" id="help-text">
-		<a href="../index.html"><button>Return to Main Menu</button></a>
-	</div>
-	<div class="help" id="help-button" onClick="showHelp()">
-		<img src="../images/help-button.png" />
-	</div>
-</div>
-	
 </body>
 </html>

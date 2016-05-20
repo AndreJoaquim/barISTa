@@ -1,395 +1,556 @@
 <!doctype html>
 <html>
+    
 <head>
 	<meta charset="utf-8">
 	<title>Bem-vindo ao barISTa</title>
     <link rel="shortcut icon" href="../images/logo.ico">
-    <!-- CSS -->
+    
+    <!-------------- CSS ------------->
 	<link href="ipm.css" rel="stylesheet" type="text/css">
 	<link href="scrollbar.css" rel="stylesheet" type="text/css">
-    <!-- JS -->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <!-------------- JS -------------->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="ipm.js"></script>
 	<script type="text/javascript" src="clock.js"></script>
+	<script type="text/javascript" src="game-embed.js"></script>
+    <script type="text/javascript" src="canvasscript.js"></script>
+    <script type="text/javascript" src="htmlgenerators.js"></script>
+    
+    <!---------- COLORPICKER --------->
+    <link rel="stylesheet" href="colorpicker/css/colorpicker.css" type="text/css"/>
+	<link rel="stylesheet" href="colorpicker/css/layout.css" type="text/css"media="screen"/>
+	<script type="text/javascript" src="colorpicker/js/colorpicker.js"></script>
+    <script type="text/javascript" src="colorpicker/js/eye.js"></script>
+    <script type="text/javascript" src="colorpicker/js/utils.js"></script>
+    <script type="text/javascript" src="colorpicker/js/layout.js"></script>
     
 </head>
+    
+<body>
 
-<body onLoad="startClock(); start()">
+<!------------------------- BACKGROUND ------------------------>  
+    
+<canvas id="background"></canvas> 
 
+<!-------------------------- SIDEBAR -------------------------->
+    
 <nav>
 	<div id="nav-ba" class="nav-item">
-        <img onClick="clicked('ba')" src="../images/ba.png" />
+        <img onClick="incrClicks(); clicked('ba')" src="../images/ba.png" />
     </div>
 	<div id="nav-bna" class="nav-item">
-		<img onClick="clicked('bna')" src="../images/bna.png" />
+		<img onClick="incrClicks(); clicked('bna')" src="../images/bna.png" />
 	</div>
 	<div id="nav-food" class="nav-item">
-		<img onClick="clicked('food')" src="../images/food.png" />
+		<img onClick="incrClicks(); clicked('food')" src="../images/food.png" />
 	</div>
 	<div id="nav-paint" class="nav-item">
-		<img onClick="clicked('paint')" src="../images/paint.png" />
+		<img onClick="incrClicks(); clicked('paint')" src="../images/paint.png" />
 	</div>
 	<div id="nav-snooker" class="nav-item">
-		<img onClick="clicked('snooker')" src="../images/snooker.png" />
+		<img onClick="incrClicks(); clicked('snooker')" src="../images/snooker.png" />
 	</div>
 </nav>
+    
+<!-------------------------- MENU LISTS ----------------------->
 
-<ul class="menu-list" id="ba">
-
-	<li>
-        <div>
-        <p>VODKA</p>
-        <p>4,00€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('VODKA', '4,00')">Sugerir</button>
+<ol class="menu-list" id="ba">
+        
+    <li class="divisor">
+        <span class="text">C</span>
+    </li>  <!-- C -->
+    
+    <li class="item">
+         <div class="item-container">
+            <div class="left">
+                <p>Caipirinha</p>
+                <p>3.50€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Caipirinha', '3.50')" />
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Caipirinha', '3.50')" />
+            </div>
         </div>
     </li>
     
-    <li>
-        <div>
-        <p>VODKA PRETA</p>
-        <p>4,50€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('VODKA PRETA', '4,50')">Sugerir</button>
-        </div>
-    </li>
-	
-	<li>
-        <div>
-        <p>VODKA REDBULL</p>
-        <p>4,50€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('VODKA REDBULL', '4,50')">Sugerir</button>
-        </div>
-    </li>
-	
-	<li>
-        <div>
-        <p>SHOT TEQUILLA</p>
-        <p>1,00€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('SHOT TEQUILLA', '1,00')">Sugerir</button>
+    <li class="divisor">
+        <span class="text">G</span>
+    </li>  <!-- G -->
+    
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Gin Tónico</p>
+                <p>2.80€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Gin Tónico', '2.80')" />
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Gin Tónico', '2.80')" />
+            </div>
         </div>
     </li>
     
-    <li class="last-child">
-        <div>
-        <p>IMPERIAL</p>
-        <p>0,50€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('IMPERIAL', '0,50')">Sugerir</button>
+    <li class="divisor">
+        <span class="text">I</span>
+    </li>  <!-- I -->
+        
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Imperial</p>
+                <p>0.80€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Imperial', '0.80')" />
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Imperial', '0.80')" />
+            </div>
         </div>
     </li>
     
-</ul>
+    <li class="divisor">
+        <span class="text">V</span>
+    </li>  <!-- V -->
+    
+	<li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Vodka</p>
+                <p>4.00€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Vodka', '4.00')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Vodka', '4.00')" />
+            </div>
+        </div>
+    </li>
+    
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Vodka Preta</p>
+                <p>4.00€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Vodka Preta', '4.00')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Vodka Preta', '4.00')" />
+            </div>
+        </div>
+    </li>
+	
+	<li class="item last-child">
+        <div class="item-container">
+            <div class="left">
+                <p>Vodka RedBull</p>
+                <p>5.50€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Vodka RedBull', '5.50')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Vodka RedBull', '5.50')" />
+            </div>
+        </div>
+    </li>
+    
+</ol>
 
-<ul class="menu-list" id="bna">
-
-	<li>
-        <div>
-        <p>COCA-COLA</p>
-        <p>0,80€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('COCA-COLA', '0,80')">Sugerir</button>
-        </div>
-    </li>
-	
-	<li>
-        <div>
-        <p>ICE TEA LIMÃO</p>
-        <p>0,80€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('COCA-COLA', '0,80')">Sugerir</button>
-        </div>
-    </li>
-	
-	<li>
-        <div>
-        <p>ICE TEA PÊSSEGO</p>
-        <p>0,80€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('COCA-COLA', '0,80')">Sugerir</button>
-        </div>
-    </li>
-	
-	<li>
-        <div>
-        <p>MOUNTAIN DEW</p>
-        <p>1,40€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('MOUNTAIN DEW', '1,40')">Sugerir</button>
+<!------------------------------------------------------------->
+    
+<ol class="menu-list" id="bna">
+    
+    <li class="divisor">
+        <span class="text">C</span>
+    </li> <!-- C -->
+    
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Café</p>
+                <p>0.65€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Café', '0.65')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Café', '0.65')" />
+            </div>
         </div>
     </li>
     
-    <li>
-        <div>
-        <p>CAFÉ</p>
-        <p>0,50€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('CAFÉ', '0,50')">Sugerir</button>
-        </div>
-    </li>
-    
-    <li class="last-child">
-        <div>
-        <p>CAPPUCCINO</p>
-        <p>1,50€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('CAPPUCCINO', '1,50')">Sugerir</button>
-        </div>
-    </li>
-    
-</ul>
-
-<ul class="menu-list" id="food">
-
-	<li>
-        <div>
-        <p>HAMBURGUER</p>
-        <p>3,95€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('HAMURGUER', '3,95')">Sugerir</button>
-        </div>
-    </li>
-	
-	<li>
-        <div>
-        <p>HAMBURGUER COM QUEIJO</p>
-        <p>4,15€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('HAMURGUER COM QUEIJO', '4,15')">Sugerir</button>
-        </div>
-    </li>
-	
-	<li>
-        <div>
-        <p>CARACÓIS</p>
-        <p>2,00€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('CARACOIS', '2,00')">Sugerir</button>
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Cappuccino</p>
+                <p>1.20€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Cappuccino', '1.20')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Cappuccino', '1.20')" />
+            </div>
         </div>
     </li>
 
-	<li>
-        <div>
-        <p>TOSTA MISTA</p>
-        <p>2,80€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('TOSTA MISTA', '2,80')">Sugerir</button>
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Chá Frio Caseiro</p>
+                <p>0.80€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Chá Frio Caseiro', '0.80')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Chá Frio Caseiro', '0.80')" />
+            </div>
         </div>
     </li>
     
-    <li>
-        <div>
-        <p>AMENDOINS</p>
-        <p>0,20€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('AMENDOINS', '0,20')">Sugerir</button>
-        </div>
-    </li>
-    
-    <li class="last-child">
-        <div>
-        <p>PISTÁCHIOS</p>
-        <p>0,20€</p>
-        <button class="request">Pedir</button>
-        <button class="suggest" onClick="suggest('PISTÁCHIOS', '0,20')">Sugerir</button>
+	<li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Coca-Cola</p>
+                <p>1.00€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Coca-Cola', '1.00')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Coca-Cola', '1.00')" />
+            </div>
         </div>
     </li>
 	
-</ul>
+    <li class="divisor">
+        <span class="text">I</span>
+    </li>  <!-- I -->
+    
+	<li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Ice Tea Limão</p>
+                <p>1.00€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Ice Tea Limão', '1.00')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Ice Tea Limão', '1.00')" />
+            </div>
+        </div>
+    </li>
+	
+	<li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Ice Tea Pêssego</p>
+                <p>1.00€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request"onClick="incrClicks(); order('Ice Tea Pêssego', '1.00')" />
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Ice Tea Pêssego', '1.00')" />
+            </div>
+        </div>
+    </li>
+	
+    <li class="divisor">
+        <span class="text">R</span>
+    </li>  <!-- R -->
+    
+	<li class="item last-child">
+        <div class="item-container">
+            <div class="left">
+                <p>RedBull</p>
+                <p>2.50€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('RedBull', '2.50')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('RedBull', '2.50')" />
+            </div>
+        </div>
+    </li>
+    
+</ol>
+    
+<!------------------------------------------------------------->
 
+<ol class="menu-list" id="food">
+
+    <li class="divisor">
+        <span class="text">A</span>
+    </li>
+    
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Amendoíns</p>
+                <p>0.15€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Amendoíns', '0.15')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Amendoíns', '0.15')" />
+            </div>
+        </div>
+    </li>
+    
+    <li class="divisor">
+        <span class="text">H</span>
+    </li>
+    
+	<li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Hamburguer Simples</p>
+                <p>2.80€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Hamburguer Simples', '2.80')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Hamburguer Simples', '2.80')" />
+            </div>
+        </div>
+    </li>
+	
+	<li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Hamburguer com Queijo</p>
+                <p>3.15€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Hamburguer com Queijo', '3.15')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Hamburguer com Queijo', '3.15')" />
+            </div>
+        </div>
+    </li>
+    
+	<li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Hamburguer Especial</p>
+                <p>4.00€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Hamburguer Especial', '4.00')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Hamburguer Especial', '4.00')" />
+            </div>
+        </div>
+    </li>
+    
+    <li class="divisor">
+        <span class="text">P</span>
+    </li>
+    
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Pistáchos</p>
+                <p>0.25€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Pistáchos', '0.25')"/>
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Pistáchos', '0.25')" />
+            </div>
+        </div>
+    </li>
+
+    <li class="divisor">
+        <span class="text">T</span>
+    </li>
+    
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Tosta de Fiambre</p>
+                <p>1.70€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Tosta de Fiambre', '1.70')" />
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Tosta de Fiambre', '1.70')" />
+            </div>
+        </div>
+    </li>
+    
+    <li class="item">
+        <div class="item-container">
+            <div class="left">
+                <p>Tosta de Queijo</p>
+                <p>1.70€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Tosta de Queijo', '1.70')" />
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Tosta de Queijo', '1.70')" />
+            </div>
+        </div>
+    </li>
+    
+	<li class="item last-child">
+        <div class="item-container">
+            <div class="left">
+                <p>Tosta Mista</p>
+                <p>2.00€</p>
+            </div>
+            <div class="right">
+                <img src="../images/pedir.png" width="100px" height="100px" class="request" onClick="incrClicks(); order('Tosta Mista', '2.00')" />
+                <img src="../images/sugerir.png" width="100px" height="100px" class="suggest" onClick="incrClicks(); suggest('Tosta Mista', '2.00')" />
+            </div>
+        </div>
+    </li>
+    
+	
+</ol>
+
+<!----------------------- ORDER MENU LIST --------------------->
+    
+<div id="order"></div>
+
+<div id="confirm-order-container">
+    <div class="text-container">
+        <div class="title">Confirmação</div>
+        <p class="top-text">Tem a certeza que pretende efectuar o seguinte pedido?</p>
+        <p id="confirm-order-name"></p>
+        <p>Quantidade: <span id="confirm-order-quantity"></span></p>
+        <p>Preço total: <span id="confirm-order-price"></span>€</p>
+    </div>
+        
+    <div class="buttons">
+        <img src="../images/sim.png" onClick="incrClicks(); confirmFinalOrder()">
+        <img src="../images/nao.png" onClick="incrClicks(); cancelFinalOrder()">
+    </div>
+</div>
+    
+<!---------------------------- PAINT -------------------------->
+    
 <div id="paint">
-<!--	<button class="save" onclick="savecanvas()">Guardar</button>
-    <button class="clear" onClick="clear()">Apagar</button>
-	<div class="colorSelector"></div>-->
-	<script type="text/javascript">
-var canvas, ctx, flag = false,
-    prevX = 0,
-    currX = 0,
-    prevY = 0,
-    currY = 0,
-    dot_flag = false;
 
-var x = "black",
-    y = 2;
+	<div class="header">
+		<h2>Área de Desenho: Personalização de Fundo</h2>
+    </div>
 
-function init() {
-    canvas = document.getElementById('can');
-    ctx = canvas.getContext("2d");
-    w = canvas.width;
-    h = canvas.height;
-
-    canvas.addEventListener("mousemove", function (e) {
-        findxy('move', e)
-    }, false);
-    canvas.addEventListener("mousedown", function (e) {
-        findxy('down', e)
-    }, false);
-    canvas.addEventListener("mouseup", function (e) {
-        findxy('up', e)
-    }, false);
-    canvas.addEventListener("mouseout", function (e) {
-        findxy('out', e)
-    }, false);
-}
-
-function color(obj) {
-    switch (obj.id) {
-        case "green":
-            x = "green";
-            break;
-        case "blue":
-            x = "blue";
-            break;
-        case "red":
-            x = "red";
-            break;
-        case "yellow":
-            x = "yellow";
-            break;
-        case "orange":
-            x = "orange";
-            break;
-        case "black":
-            x = "black";
-            break;
-        case "white":
-            x = "white";
-            break;
-    }
-    if (x == "white") y = 14;
-    else y = 2;
-
-}
-
-function draw() {
-    ctx.beginPath();
-    ctx.moveTo(prevX, prevY);
-    ctx.lineTo(currX, currY);
-    ctx.strokeStyle = x;
-    ctx.lineWidth = y;
-    ctx.stroke();
-    ctx.closePath();
-}
-
-function erase() {
-    var m = confirm("Want to clear");
-    if (m) {
-        ctx.clearRect(0, 0, w, h);
-        document.getElementById("canvasimg").style.display = "none";
-    }
-}
-
-function save() {
-    document.getElementById("canvasimg").style.border = "2px solid";
-    var dataURL = canvas.toDataURL();
-    document.getElementById("canvasimg").src = dataURL;
-    document.getElementById("canvasimg").style.display = "inline";
-}
-
-function findxy(res, e) {
-    if (res == 'down') {
-        prevX = currX;
-        prevY = currY;
-        currX = e.clientX - canvas.offsetLeft;
-        currY = e.clientY - canvas.offsetTop;
-
-        flag = true;
-        dot_flag = true;
-        if (dot_flag) {
-            ctx.beginPath();
-            ctx.fillStyle = x;
-            ctx.fillRect(currX, currY, 2, 2);
-            ctx.closePath();
-            dot_flag = false;
-        }
-    }
-    if (res == 'up' || res == "out") {
-        flag = false;
-    }
-    if (res == 'move') {
-        if (flag) {
-            prevX = currX;
-            prevY = currY;
-            currX = e.clientX - canvas.offsetLeft;
-            currY = e.clientY - canvas.offsetTop;
-            draw();
-        }
-    }
-}
-</script>
-
-    <canvas id="can" width="400" height="400" style="position:absolute;top:10%;left:10%;border:2px solid;"></canvas>
-    <div style="position:absolute;top:12%;left:43%;">Choose Color</div>
-    <div style="position:absolute;top:15%;left:45%;width:10px;height:10px;background:green;" id="green" onclick="color(this)"></div>
-    <div style="position:absolute;top:15%;left:46%;width:10px;height:10px;background:blue;" id="blue" onclick="color(this)"></div>
-    <div style="position:absolute;top:15%;left:47%;width:10px;height:10px;background:red;" id="red" onclick="color(this)"></div>
-    <div style="position:absolute;top:17%;left:45%;width:10px;height:10px;background:yellow;" id="yellow" onclick="color(this)"></div>
-    <div style="position:absolute;top:17%;left:46%;width:10px;height:10px;background:orange;" id="orange" onclick="color(this)"></div>
-    <div style="position:absolute;top:17%;left:47%;width:10px;height:10px;background:black;" id="black" onclick="color(this)"></div>
-    <div style="position:absolute;top:20%;left:43%;">Eraser</div>
-    <div style="position:absolute;top:22%;left:45%;width:15px;height:15px;background:white;border:2px solid;" id="white" onclick="color(this)"></div>
-    <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
-    <input type="button" value="save" id="btn" size="30" onclick="save()" style="position:absolute;top:55%;left:10%;">
-    <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;">
-
-		
-	</div>
+    <canvas id="tela"></canvas>
+    
+    <table>
+        <tr>
+            <th class="left">
+                <div id="customWidget">
+                    <div id="colorSelector2"><div style="background-color: blue"></div></div>
+                    <div id="colorpickerHolder2"></div>
+                </div>
+            </th>
+            <th>
+                <img src="../images/guardar-fundo.png" onClick="incrClicks(); guardarTela()" />
+                <img src="../images/limpar.png" onClick="incrClicks(); limparTela()" />
+                <img src="../images/limpar-fundo.png" onClick="incrClicks(); limparFundo()" />
+            </th>
+        </tr>
+    </table>
+    
+</div>
+    
+<!------------------------ GLOBAL FEED ------------------------>
 
 <div id="globalfeed">
 	<div class="header">
 		<h2>Sugestões</h2>
     </div>
-    <div id="feed">
-    	<div class="item" style="display:block" id="0">
-        <p>VODKA REDBULL</p>
-        <p>4,50€</p>
-        <button class="request">Pedir</button>
-        <button onClick ='ignore(0)'>Ignorar</button>
-        </div>        
+    <div id="feed"></div>
+    <div class="bottom-button">
+        <img src="../images/ignorar-todas.png" onClick="incrClicks(); ignoreAll()" width="256" height="128"/>
     </div>
-    <button id="ignoreAll" onClick="ignoreAll()">Ignorar Todas</button>
 </div>
 
+<!------------------------ TIME AND DATE ---------------------->
+   
 <div class="time time-date-container">
 	<div class="time" id="clock"></div>
 	<div class="time" id="date"></div>
 </div>
-
-<div class="help help-container">
-	<div class="help" id="help-text">
-		<a href="../index.html"><button>Voltar ao Menu Inicial</button></a>
-		<div id="help-content"></div>
+  
+<!--------------------------- CHECKOUT ------------------------>   
+    
+<div id="checkout-container">
+   <div class="header">
+		<h2>Conta</h2>
+    </div>
+    <div id="checkout-list"></div>
+    <div class="checkout-total-container">
+        <table>
+            <tr>
+                <th>Total a Pagar:</th>
+                <th class="highlight"><span id="checkout-total-to-pay">0.00</span>€</th>
+            </tr>
+             <tr>
+                <th id="totalToPay">Total:</th>
+                <th class="lowlight"><span id="checkout-total">0.00</span>€</th>
+            </tr>
+        </table>
+    </div>
+    <div id="payment-container" class="bottom-button">
+        <img src="../images/pagamento.png" onClick="incrClicks(); payment()" width="256" height="128" />
+    </div>
+</div>
+    
+<!--------------------- SNOOKER MENU LIST --------------------->
+    
+<div id="snooker" class="menu-list" > 
+    <div class="header">
+        <h2>Snooker</h2>
+    </div>
+    
+	<div id="snooker-sidebar">
+		<div>
+			<p class="subtitle">Número de Jogadores:</p>
+            <table>
+                <tr>
+                    <th id="um-jogador" class="radio-button"><img src="../images/radio.png" onClick="radioPressed('um-jogador')" /></th>
+                    <th class="right"><p>Um jogador</p></th>
+                </tr>
+                <tr>
+                    <th id="dois-jogadores" class="radio-button"><img src="../images/radio.png" onClick="radioPressed('dois-jogadores')" /></th>
+                    <th class="right"><p>Dois jogadores</p></th>
+                </tr>
+            </table>
+		</div>
+		<div>
+			<p class="subtitle">Apresentação:</p>
+            <table>
+                <tr>
+                    <th id="janela" class="radio-button"><img src="../images/radio.png" onClick="radioPressed('janela')" /></th>
+                    <th class="right"><p>Janela</p></th>
+                </tr>
+                <tr>
+                    <th id="ecra-inteiro" class="radio-button"><img style="cursor: default;" src="../images/radio.png" /></th>
+                    <th class="right"><p>Ecrã Inteiro (não disponível)</p></th>
+                </tr>
+            </table>
+		</div>
+		<br/>
+		<div class="init"><img src="../images/iniciar.png" onClick="incrClicks(); startGame()" /></div>
 	</div>
-	<div class="help" id="help-button" onClick="showHelp()">
+</div>
+
+<!----------------------- SNOOKER FRAME ----------------------->
+
+<div id="snooker-game">
+    <div id="snooker-table"><img class="table" src="../images/snooker-game.png" /></div>
+    <div id="snooker-bottom-container">
+        <div class="left">
+            <p>A simular jogo...</p>
+        </div>
+        <div id="snooker-table-buttons" class="right">    
+            <img style="margin-right: 5px;" src="../images/pause.png" onClick="pauseGame();" />
+            <img src="../images/sair-jogo.png" onClick="exitGame();" />
+        </div>
+    </div>
+</div>
+
+<!------------------- RIGHT BUTTONS AND HELP ------------------>
+    
+<div class="help help-container">
+	<div class="help" id="help-content"></div>
+	<div class="help" id="help-button" onClick="incrClicks(); clicked('help')">
 		<img src="../images/help-button.png" />
 	</div>
 </div>
 
-    
-<div class="snooker-jogo"></div>
-
-
-
-  
-
- 
-<div id="snooker" style="display: none"> 
-	<div id="snooker-side-bar">
-		<div>
-			<button>Um jogador</button>
-			<button>Multijogador</button>
-		</div>
-		<div>
-			<p>Apresentação:</p>
-			<form>
-				<input type="radio" name="janela" value="j"></input>Janela<br />
-				<input type="radio" name="janela" value="e"></input>Ecra inteiro
-			</form>
-		</div>
-	</div>
+<div id="cart-button" onClick="incrClicks(); clicked('cart')">
+    <img src="../images/cart.png" width="128px" height="128px" />
 </div>
-    
+
+<div id="exit-button" onClick="incrClicks(); clicked('exit')">
+    <img src="../images/exit.png" width="128px" height="128px" />
+</div>
+
+
 </body>    
 </html>

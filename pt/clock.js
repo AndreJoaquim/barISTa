@@ -4,8 +4,8 @@
  *
  */
 
- var months = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
- var dias_da_semana = ["domingo", "segunda", "ter&#231;a", "quarta", "quinta", "sexta", "sábado"];
+ var months = ["janeiro", "fevereiro", "mar#231;o", "abril", "maio", "junho", "julho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+ var dias_da_semana = ["Domingo", "Segunda", "Ter&#231;a", "Quarta", "Quinta", "Sexta", "SÃ¡bado"];
  
 function startClock() {
 
@@ -15,7 +15,7 @@ function startClock() {
 	
 	var dotw = today.getDay();
 	var day = today.getDate();
-	var month = today.getMonth() + 1; //January is 0
+	var month = today.getMonth() + 1; // January is 0
 	var year = today.getFullYear();
 	
 	if(day < 10)

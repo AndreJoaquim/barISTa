@@ -1,0 +1,22 @@
+﻿   Peça dois Ice Tea de Pessego e após isso, sugira
+Vodka Redbull,
+ em seguida peça a bebida mais sugerida
+das sugestões e efectue o
+ pagamento de todas as bebidas
+com multibanco.
+
+
+   
+Inicie um jogo de snooker de um jogador em
+modo janela e
+ após o inicio do jogo peça uma
+Vodka e confirme o seu pedido. Depois volte ao jogo.
+
+
+
+   Crie e guarde um fundo de mesa com um círculo
+amarelo do 
+tamanho de um dos botões do menu no
+canto superior esquerdo
+ da área de desenho, após
+isso limpe o fundo de mesa actual.
